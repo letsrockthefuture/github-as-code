@@ -54,7 +54,7 @@ jobs:
       - name: Terraform plan
         id: terraform_plan
         # if: github.event_name == 'pull_request'
-        run: terraform plan -no-color
+        run: terraform plan -parallelism=30 -no-color
         continue-on-error: true
 
       - name: Terraform plan status
@@ -117,4 +117,4 @@ jobs:
           terraform get
 
       - name: Terraform apply
-        run: terraform apply -auto-approve
+        run: terraform apply -parallelism=30 -auto-approve
