@@ -5,14 +5,12 @@ on:
     branches:
       - main
     paths:
-      # - "docs/**"
       - ".github/workflows/terraform.yaml"
       - "terraform/**"
   pull_request:
     branches:
       - main
     paths:
-      # - "docs/**"
       - ".github/workflows/terraform.yaml"
       - "terraform/**"
 
@@ -24,14 +22,11 @@ jobs:
   terraform_plan:
     name: Terraform plan
     runs-on: ubuntu-latest
-    # strategy:
-    #   matrix:
-    #     environment: [ development, production ]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Terraform credentials
+      - name: Set up Terraform credentials
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.1.0
@@ -39,7 +34,8 @@ jobs:
 
       - name: Terraform format
         id: terraform_fmt
-        run: terraform fmt -recursive -check -diff
+        run: |
+          terraform fmt -recursive -check -diff
 
       - name: Terraform init
         id: terraform_init
@@ -49,17 +45,20 @@ jobs:
 
       - name: Terraform validate
         id: terraform_validate
-        run: terraform validate -no-color
+        run: |
+          terraform validate -no-color
 
       - name: Terraform plan
         id: terraform_plan
         # if: github.event_name == 'pull_request'
-        run: terraform plan -parallelism=30 -no-color
+        run: |
+          terraform plan -no-color
         continue-on-error: true
 
       - name: Terraform plan status
         if: steps.terraform_plan.outcome == 'failure'
-        run: exit 1
+        run: |
+          exit 1
 
       - name: Update pull request
         uses: actions/github-script@0.9.0
@@ -117,4 +116,5 @@ jobs:
           terraform get
 
       - name: Terraform apply
-        run: terraform apply -parallelism=30 -auto-approve
+        run: |
+          terraform apply -auto-approve
