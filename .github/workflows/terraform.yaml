@@ -18,7 +18,7 @@ on:
 
 defaults:
   run:
-    working-directory: "terraform/organization/"
+    working-directory: "terraform/"
 
 jobs:
   terraform_plan:
