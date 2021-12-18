@@ -25,12 +25,13 @@ module "organization" {
   # all_members_team_name       = "everyone"
   # all_members_team_visibility = "closed"
 
-  members = [
-    "dansvie",
-  ]
+  # members = [
+  #   "terraform-test-user-1",
+  #   "terraform-test-user-2",
+  # ]
 
   # admins = [
-  #   "dansvie",
+  #   "terraform-test-admin",
   # ]
 
   # randomly chosen users, sorry for blocking you guys!
