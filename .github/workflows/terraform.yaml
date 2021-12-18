@@ -104,7 +104,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Terraform credentials
+      - name: Set up Terraform credentials
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.1.0
