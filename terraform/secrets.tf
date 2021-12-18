@@ -5,7 +5,7 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 module "my_secret_name" {
-  source = "git@github.com:mineiros-io/terraform-github-organization-secret.git?ref=v0.0.1"
+  source = "github.com/mineiros-io/terraform-github-organization-secret.git?ref=v0.0.1"
 
   # All required module arguments
 
