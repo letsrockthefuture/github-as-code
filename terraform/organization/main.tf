@@ -27,6 +27,7 @@ module "organization" {
 
   members = [
     "dansvie",
+    "danielvincenzi"
   ]
 
   admins = [
