@@ -27,12 +27,11 @@ module "organization" {
 
   members = [
     "dansvie",
-    "danielvincenzi"
   ]
 
-  admins = [
-    "dansvie",
-  ]
+  # admins = [
+  #   "dansvie",
+  # ]
 
   # randomly chosen users, sorry for blocking you guys!
   # blocked_users = [

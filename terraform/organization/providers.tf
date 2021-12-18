@@ -12,11 +12,9 @@ terraform {
     organization = "letsrockthefuture"
 
     workspaces {
-      name = "api-development-us-east-1"
+      name = "github-as-code-test"
     }
   }
 }
 
-provider "github" {
-  # token = var.github_token
-}
+provider "github" {}
