@@ -21,18 +21,6 @@
 #   AWS_SESSION_TOKEN environment variables are also used, if applicable.
 # ----------------------------------------------------------------------------------------------------------------------
 
-# ----------------------------------------------------------------------------------------------------------------------
-# Provider Setup
-# ----------------------------------------------------------------------------------------------------------------------
-
-# resource "github_repository" "repository" {
-#   name = "engineering-tools"
-# }
-
-# resource "github_repository" "another_repository" {
-#   name = "devops-tools"
-# }
-
 module "owners" {
   source  = "mineiros-io/team/github"
   version = "~> 0.7.0"
