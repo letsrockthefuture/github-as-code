@@ -26,7 +26,7 @@ module "golang_worker" {
   has_downloads      = false
   auto_init          = true
   gitignore_template = "Terraform"
-  license_template   = "mit"
+  license_template   = "apache-2.0"
 
   topics = [
     "golang-worker",
@@ -116,7 +116,7 @@ module "terraform_cloud" {
   has_downloads      = false
   auto_init          = true
   gitignore_template = "Terraform"
-  license_template   = "mit"
+  license_template   = "apache-2.0"
 
   topics = [
     "terraform-cloud",
