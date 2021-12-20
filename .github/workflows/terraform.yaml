@@ -26,7 +26,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Run security scan on Terraform code
+      - name: "Run Checkov (Terraform code security analysis)"
         id: checkov
         uses: bridgecrewio/checkov-action@master
         with:
