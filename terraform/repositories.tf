@@ -42,20 +42,20 @@ module "github" {
     module.developers.id,
   ]
 
-  webhooks = [
-    {
-      active = true
+  # webhooks = [
+  #   {
+  #     active = true
 
-      events = [
-        "issues",
-      ]
+  #     events = [
+  #       "issues",
+  #     ]
 
-      url          = "https://example.com/events"
-      content_type = "application/json"
-      insecure_ssl = true
-      secret       = "sososecret"
-    },
-  ]
+  #     url          = "https://example.com/events"
+  #     content_type = "application/json"
+  #     insecure_ssl = false
+  #     secret       = "sososecret"
+  #   },
+  # ]
 
   # admin_collaborators = [
   #   "danielvincenzi",
@@ -132,20 +132,20 @@ module "golang_worker" {
     module.developers.id,
   ]
 
-  webhooks = [
-    {
-      active = true
+  # webhooks = [
+  #   {
+  #     active = true
 
-      events = [
-        "issues",
-      ]
+  #     events = [
+  #       "issues",
+  #     ]
 
-      url          = "https://example.com/events"
-      content_type = "application/json"
-      insecure_ssl = true
-      secret       = "sososecret"
-    },
-  ]
+  #     url          = "https://example.com/events"
+  #     content_type = "application/json"
+  #     insecure_ssl = false
+  #     secret       = "sososecret"
+  #   },
+  # ]
 
   # admin_collaborators = [
   #   "danielvincenzi",
@@ -222,20 +222,20 @@ module "terraform_enterprise" {
     module.developers.id,
   ]
 
-  webhooks = [
-    {
-      active = true
+  # webhooks = [
+  #   {
+  #     active = true
 
-      events = [
-        "issues",
-      ]
+  #     events = [
+  #       "issues",
+  #     ]
 
-      url          = "https://example.com/events"
-      content_type = "application/json"
-      insecure_ssl = true
-      secret       = "sososecret"
-    },
-  ]
+  #     url          = "https://example.com/events"
+  #     content_type = "application/json"
+  #     insecure_ssl = false
+  #     secret       = "sososecret"
+  #   },
+  # ]
 
   # admin_collaborators = [
   #   "danielvincenzi",
