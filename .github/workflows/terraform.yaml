@@ -14,9 +14,9 @@ on:
       - ".github/workflows/terraform.yaml"
       - "terraform/**"
 
-defaults:
-  run:
-    working-directory: "terraform/"
+# defaults:
+#   run:
+#     working-directory: "terraform/"
 
 jobs:
   tflint:
@@ -31,11 +31,9 @@ jobs:
         with:
           tflint_version: v0.34.0
 
-      - name: Init
-        run: tflint --init
-
-      - name: Run
-        run: tflint -f compact
+      - name: Run TFLint
+        run: |
+          make tflint
 
   # tfsec:
   #   name: tfsec with reviewdog
@@ -109,63 +107,63 @@ jobs:
           terraform_version: 1.1.0
           cli_config_credentials_token: ${{ secrets.TERRAFORM_API_TOKEN }}
 
-      - name: Format
-        id: terraform_fmt
-        run: |
-          terraform fmt -recursive -check -diff
+      # - name: Format
+      #   id: terraform_fmt
+      #   run: |
+      #     terraform fmt -recursive -check -diff
 
-      - name: Init
-        id: terraform_init
-        run: |
-          terraform init
-          terraform get
+      # - name: Init
+      #   id: terraform_init
+      #   run: |
+      #     terraform init
+      #     terraform get
 
-      - name: Validate
-        id: terraform_validate
-        run: |
-          terraform validate -no-color
+      # - name: Validate
+      #   id: terraform_validate
+      #   run: |
+      #     terraform validate -no-color
 
       - name: Plan
         id: terraform_plan
         # if: github.event_name == 'pull_request'
         continue-on-error: true
         run: |
-          terraform plan -no-color
+          make plan
 
       - name: Plan status
         if: steps.terraform_plan.outcome == 'failure'
         run: |
           exit 1
 
-      - name: Update pull request
-        uses: actions/github-script@0.9.0
-        if: github.event_name == 'pull_request'
-        env:
-          TERRAFORM_PLAN: "terraform\n${{ steps.terraform_plan.outputs.stdout }}"
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const output = `#### Terraform format & style 🖌: \`${{ steps.terraform_fmt.outcome }}\`
-            #### Terraform initialization ⚙️: \`${{ steps.terraform_init.outcome }}\`
-            #### Terraform validation 🤖: \${{ steps.terraform_validate.outputs.stdout }}\
-            #### Terraform plan 📖: \`${{ steps.terraform_plan.outcome }}\`
+      # - name: Update pull request
+      #   uses: actions/github-script@0.9.0
+      #   if: github.event_name == 'pull_request'
+      #   env:
+      #     TERRAFORM_PLAN: "terraform\n${{ steps.terraform_plan.outputs.stdout }}"
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     script: |
+      #       const output = `#### Terraform format & style 🖌: \`${{ steps.terraform_fmt.outcome }}\`
+      #       #### Terraform initialization ⚙️: \`${{ steps.terraform_init.outcome }}\`
+      #       #### Terraform validation 🤖: \${{ steps.terraform_validate.outputs.stdout }}\
+      #       #### Terraform plan 📖: \`${{ steps.terraform_plan.outcome }}\`
 
-            <details><summary>Show plan</summary>
+      #       <details><summary>Show plan</summary>
 
-            \`\`\`\n
-            ${process.env.TERRAFORM_PLAN}
-            \`\`\`
+      #       \`\`\`\n
+      #       ${process.env.TERRAFORM_PLAN}
+      #       \`\`\`
 
-            </details>
+      #       </details>
 
-            *Actor: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Working Directory: \`${{ env.working-directory }}\`, Workflow: \`${{ github.workflow }}\`*`;
+      #       *Actor: @${{ github.actor }}, Action: \`${{ github.event_name }}\`, Working Directory: \`${{ env.working-directory }}\`, Workflow: \`${{ github.workflow }}\`*`;
 
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: output
-            })
+      #       github.issues.createComment({
+      #         issue_number: context.issue.number,
+      #         owner: context.repo.owner,
+      #         repo: context.repo.repo,
+      #         body: output
+      #       })
 
   apply:
     name: Apply
@@ -187,11 +185,11 @@ jobs:
           terraform_version: 1.1.0
           cli_config_credentials_token: ${{ secrets.TERRAFORM_API_TOKEN }}
 
-      - name: Init
-        run: |
-          terraform init
-          terraform get
+      # - name: Init
+      #   run: |
+      #     terraform init
+      #     terraform get
 
       - name: Apply
         run: |
-          terraform apply -auto-approve
+          make apply
