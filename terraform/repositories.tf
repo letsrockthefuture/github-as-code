@@ -96,7 +96,7 @@ module "github" {
   ]
 }
 
-resource "github_repository_environment" "github" {
+resource "github_repository_environment" "github_development" {
   environment = "development"
   repository  = ".github"
   reviewers {
@@ -110,7 +110,7 @@ resource "github_repository_environment" "github" {
   }
 }
 
-resource "github_repository_environment" "github" {
+resource "github_repository_environment" "github_production" {
   environment = "production"
   repository  = ".github"
   reviewers {
@@ -214,7 +214,7 @@ module "golang_worker" {
   ]
 }
 
-resource "github_repository_environment" "golang_worker" {
+resource "github_repository_environment" "golang_worker_development" {
   environment = "development"
   repository  = "golang-worker"
   reviewers {
@@ -228,7 +228,7 @@ resource "github_repository_environment" "golang_worker" {
   }
 }
 
-resource "github_repository_environment" "golang_worker" {
+resource "github_repository_environment" "golang_worker_production" {
   environment = "production"
   repository  = "golang-worker"
   reviewers {
@@ -332,7 +332,7 @@ module "terraform_cloud" {
   ]
 }
 
-resource "github_repository_environment" "terraform_cloud" {
+resource "github_repository_environment" "terraform_cloud_development" {
   environment = "development"
   repository  = "terraform-cloud"
   reviewers {
@@ -346,7 +346,7 @@ resource "github_repository_environment" "terraform_cloud" {
   }
 }
 
-resource "github_repository_environment" "terraform_cloud" {
+resource "github_repository_environment" "terraform_cloud_production" {
   environment = "production"
   repository  = "terraform-cloud"
   reviewers {
