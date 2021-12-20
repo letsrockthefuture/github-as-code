@@ -96,6 +96,34 @@ module "github" {
   ]
 }
 
+resource "github_repository_environment" "github" {
+  environment = "development"
+  repository  = ".github"
+  reviewers {
+    teams = [
+      module.reviewers.id,
+    ]
+  }
+  deployment_branch_policy {
+    protected_branches     = true
+    custom_branch_policies = false
+  }
+}
+
+resource "github_repository_environment" "github" {
+  environment = "production"
+  repository  = ".github"
+  reviewers {
+    teams = [
+      module.reviewers.id,
+    ]
+  }
+  deployment_branch_policy {
+    protected_branches     = true
+    custom_branch_policies = false
+  }
+}
+
 module "golang_worker" {
   source  = "mineiros-io/repository/github"
   version = "~> 0.11.0"
@@ -186,6 +214,34 @@ module "golang_worker" {
   ]
 }
 
+resource "github_repository_environment" "golang_worker" {
+  environment = "development"
+  repository  = "golang-worker"
+  reviewers {
+    teams = [
+      module.reviewers.id,
+    ]
+  }
+  deployment_branch_policy {
+    protected_branches     = true
+    custom_branch_policies = false
+  }
+}
+
+resource "github_repository_environment" "golang_worker" {
+  environment = "production"
+  repository  = "golang-worker"
+  reviewers {
+    teams = [
+      module.reviewers.id,
+    ]
+  }
+  deployment_branch_policy {
+    protected_branches     = true
+    custom_branch_policies = false
+  }
+}
+
 module "terraform_cloud" {
   source  = "mineiros-io/repository/github"
   version = "~> 0.11.0"
@@ -274,6 +330,34 @@ module "terraform_cloud" {
       # }
     },
   ]
+}
+
+resource "github_repository_environment" "terraform_cloud" {
+  environment = "development"
+  repository  = "terraform-cloud"
+  reviewers {
+    teams = [
+      module.reviewers.id,
+    ]
+  }
+  deployment_branch_policy {
+    protected_branches     = true
+    custom_branch_policies = false
+  }
+}
+
+resource "github_repository_environment" "terraform_cloud" {
+  environment = "production"
+  repository  = "terraform-cloud"
+  reviewers {
+    teams = [
+      module.reviewers.id,
+    ]
+  }
+  deployment_branch_policy {
+    protected_branches     = true
+    custom_branch_policies = false
+  }
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
