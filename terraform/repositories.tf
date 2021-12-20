@@ -52,7 +52,7 @@ module "github" {
 
       url          = "https://example.com/events"
       content_type = "application/json"
-      insecure_ssl = false
+      insecure_ssl = true
       secret       = "sososecret"
     },
   ]
@@ -142,7 +142,7 @@ module "golang_worker" {
 
       url          = "https://example.com/events"
       content_type = "application/json"
-      insecure_ssl = false
+      insecure_ssl = true
       secret       = "sososecret"
     },
   ]
@@ -232,7 +232,7 @@ module "terraform_enterprise" {
 
       url          = "https://example.com/events"
       content_type = "application/json"
-      insecure_ssl = false
+      insecure_ssl = true
       secret       = "sososecret"
     },
   ]
