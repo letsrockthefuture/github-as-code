@@ -20,7 +20,7 @@ on:
 
 jobs:
   tflint:
-    name: TFLint
+    name: Linter
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
