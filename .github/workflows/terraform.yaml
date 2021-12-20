@@ -20,13 +20,13 @@ defaults:
 
 jobs:
   checkov:
-    name: Checkov
+    name: "Checkov (Terraform code security analysis)"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: "Run Checkov (Terraform code security analysis)"
+      - name: Run Checkov
         id: checkov
         uses: bridgecrewio/checkov-action@master
         with:
