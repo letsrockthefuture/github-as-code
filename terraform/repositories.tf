@@ -186,7 +186,7 @@ module "golang_worker" {
   ]
 }
 
-module "terraform_enterprise" {
+module "terraform_cloud" {
   source  = "mineiros-io/repository/github"
   version = "~> 0.11.0"
 
@@ -194,7 +194,7 @@ module "terraform_enterprise" {
     module.reviewers,
   ]
 
-  name        = "terraform-enterprise"
+  name        = "terraform-cloud"
   description = "A description of the repository."
   # homepage_url       = "https://github.com/mineiros-io"
   visibility         = "public"
@@ -210,7 +210,7 @@ module "terraform_enterprise" {
   license_template   = "apache-2.0"
 
   topics = [
-    "terraform-enterprise",
+    "terraform-cloud",
     "terraform",
   ]
 
