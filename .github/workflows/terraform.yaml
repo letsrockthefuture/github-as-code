@@ -44,6 +44,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Terraform init
+        run: |
+          terraform init
+          terraform get
+
       - name: Run TFSec with reviewdog
         uses: reviewdog/action-tfsec@master
         with:
