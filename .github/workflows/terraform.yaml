@@ -19,6 +19,43 @@ defaults:
     working-directory: "terraform/"
 
 jobs:
+  tflint:
+    name: TFLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up TFLint
+        uses: terraform-linters/setup-tflint@v1
+        with:
+          tflint_version: v0.29.0
+
+      - name: Init
+        run: tflint --init
+
+      - name: Run TFLint
+        run: tflint -f compact
+
+  tfsec:
+    name: TFSec with reviewdog
+    runs-on: ubuntu-latest # Windows and macOS are also supported
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run TFSec with reviewdog
+        uses: reviewdog/action-tfsec@master
+        with:
+          github_token: ${{ secrets.github_token }}
+          working_directory: "terraform/" # Change working directory
+          level: info # Get more output from reviewdog
+          # reporter: github-pr-review # Change reviewdog reporter
+          filter_mode: nofilter # Check all files, not just the diff
+          fail_on_error: true # Fail action if errors are found
+          flags: -tee # Add debug flag to reviewdog
+          # tfsec_flags: "" # Optional
+
   # checkov:
   #   name: Checkov
   #   runs-on: ubuntu-latest
