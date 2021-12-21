@@ -204,9 +204,9 @@ module "terraform_workspaces" {
   ]
 }
 
-resource "github_repository_environment" "terraform_cloud_production" {
+resource "github_repository_environment" "terraform_workspaces_production" {
   environment = "production"
-  repository  = "terraform-cloud"
+  repository  = "terraform-workspaces"
   reviewers {
     teams = [
       module.reviewers.id,
@@ -218,7 +218,7 @@ resource "github_repository_environment" "terraform_cloud_production" {
   }
 
   depends_on = [
-    module.terraform_cloud.id,
+    module.terraform_workspaces.id,
   ]
 }
 
