@@ -61,39 +61,39 @@ module "github" {
   #   "danielvincenzi",
   # ]
 
-  branch_protections_v3 = [
-    {
-      branch                 = "main"
-      enforce_admins         = true
-      require_signed_commits = true
+  # branch_protections_v3 = [
+  #   {
+  #     branch                 = "main"
+  #     enforce_admins         = true
+  #     require_signed_commits = true
 
-      required_status_checks = {
-        strict = true
+  #     required_status_checks = {
+  #       strict = true
 
-        # contexts = [
-        #   "ci/travis"
-        # ]
-      }
+  #       # contexts = [
+  #       #   "ci/travis"
+  #       # ]
+  #     }
 
-      required_pull_request_reviews = {
-        dismiss_stale_reviews = true
+  #     required_pull_request_reviews = {
+  #       dismiss_stale_reviews = true
 
-        # dismissal_teams = [
-        #   github_team.team.slug,
-        # ]
+  #       # dismissal_teams = [
+  #       #   github_team.team.slug,
+  #       # ]
 
-        require_code_owner_reviews      = true
-        required_approving_review_count = 1
-      }
+  #       require_code_owner_reviews      = true
+  #       required_approving_review_count = 1
+  #     }
 
-      # restrictions = {
+  #     # restrictions = {
 
-      #   teams = [
-      #     github_team.team.slug,
-      #   ]
-      # }
-    },
-  ]
+  #     #   teams = [
+  #     #     github_team.team.slug,
+  #     #   ]
+  #     # }
+  #   },
+  # ]
 }
 
 resource "github_repository_environment" "github_production" {
@@ -169,39 +169,39 @@ module "terraform_workspaces" {
   #   "danielvincenzi",
   # ]
 
-  branch_protections_v3 = [
-    {
-      branch                 = "main"
-      enforce_admins         = true
-      require_signed_commits = true
+  # branch_protections_v3 = [
+  #   {
+  #     branch                 = "main"
+  #     enforce_admins         = true
+  #     require_signed_commits = true
 
-      required_status_checks = {
-        strict = true
+  #     required_status_checks = {
+  #       strict = true
 
-        # contexts = [
-        #   "ci/travis"
-        # ]
-      }
+  #       # contexts = [
+  #       #   "ci/travis"
+  #       # ]
+  #     }
 
-      required_pull_request_reviews = {
-        dismiss_stale_reviews = true
+  #     required_pull_request_reviews = {
+  #       dismiss_stale_reviews = true
 
-        # dismissal_teams = [
-        #   github_team.team.slug,
-        # ]
+  #       # dismissal_teams = [
+  #       #   github_team.team.slug,
+  #       # ]
 
-        require_code_owner_reviews      = true
-        required_approving_review_count = 1
-      }
+  #       require_code_owner_reviews      = true
+  #       required_approving_review_count = 1
+  #     }
 
-      # restrictions = {
+  #     # restrictions = {
 
-      #   teams = [
-      #     github_team.team.slug,
-      #   ]
-      # }
-    },
-  ]
+  #     #   teams = [
+  #     #     github_team.team.slug,
+  #     #   ]
+  #     # }
+  #   },
+  # ]
 }
 
 resource "github_repository_environment" "terraform_workspaces_production" {
@@ -277,39 +277,39 @@ module "golang_worker" {
   #   "danielvincenzi",
   # ]
 
-  branch_protections_v3 = [
-    {
-      branch                 = "main"
-      enforce_admins         = true
-      require_signed_commits = true
+  # branch_protections_v3 = [
+  #   {
+  #     branch                 = "main"
+  #     enforce_admins         = true
+  #     require_signed_commits = true
 
-      required_status_checks = {
-        strict = true
+  #     required_status_checks = {
+  #       strict = true
 
-        # contexts = [
-        #   "ci/travis"
-        # ]
-      }
+  #       # contexts = [
+  #       #   "ci/travis"
+  #       # ]
+  #     }
 
-      required_pull_request_reviews = {
-        dismiss_stale_reviews = true
+  #     required_pull_request_reviews = {
+  #       dismiss_stale_reviews = true
 
-        # dismissal_teams = [
-        #   github_team.team.slug,
-        # ]
+  #       # dismissal_teams = [
+  #       #   github_team.team.slug,
+  #       # ]
 
-        require_code_owner_reviews      = true
-        required_approving_review_count = 1
-      }
+  #       require_code_owner_reviews      = true
+  #       required_approving_review_count = 1
+  #     }
 
-      # restrictions = {
+  #     # restrictions = {
 
-      #   teams = [
-      #     github_team.team.slug,
-      #   ]
-      # }
-    },
-  ]
+  #     #   teams = [
+  #     #     github_team.team.slug,
+  #     #   ]
+  #     # }
+  #   },
+  # ]
 }
 
 # resource "github_repository_environment" "golang_worker_development" {

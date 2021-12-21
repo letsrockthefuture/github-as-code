@@ -12,9 +12,9 @@ repos:
       - id: terraform_fmt
       # - id: terraform_docs
       - id: terraform_tflint
-      - id: terraform_tfsec
+      # - id: terraform_tfsec
       - id: checkov
       # - id: terrascan
-      - id: infracost_breakdown
-        args:
-          - --args=--path=terraform/
+      # - id: infracost_breakdown
+      #   args:
+      #     - --args=--path=terraform/
