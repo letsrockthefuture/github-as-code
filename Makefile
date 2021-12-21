@@ -2,6 +2,10 @@ SHELL := /bin/bash
 
 export WORKSPACE ?= terraform/
 
+linter:
+	cd ${WORKSPACE} && tflint --init
+	cd ${WORKSPACE} && tflint -f compact
+
 init:
 	cd ${WORKSPACE} && terraform init
 	cd ${WORKSPACE} && terraform get
@@ -17,7 +21,3 @@ apply:
 	cd ${WORKSPACE} && terraform init
 	cd ${WORKSPACE} && terraform get
 	cd ${WORKSPACE} && terraform apply -auto-approve
-
-tflint:
-	cd ${WORKSPACE} && tflint --init
-	cd ${WORKSPACE} && tflint -f compact
