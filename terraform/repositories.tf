@@ -96,24 +96,6 @@ module "github" {
   ]
 }
 
-resource "github_repository_environment" "github_development" {
-  environment = "development"
-  repository  = ".github"
-  reviewers {
-    teams = [
-      module.reviewers.id,
-    ]
-  }
-  deployment_branch_policy {
-    protected_branches     = true
-    custom_branch_policies = false
-  }
-
-  depends_on = [
-    module.github.id,
-  ]
-}
-
 resource "github_repository_environment" "github_production" {
   environment = "production"
   repository  = ".github"
@@ -222,23 +204,23 @@ module "golang_worker" {
   ]
 }
 
-resource "github_repository_environment" "golang_worker_development" {
-  environment = "development"
-  repository  = "golang-worker"
-  reviewers {
-    teams = [
-      module.reviewers.id,
-    ]
-  }
-  deployment_branch_policy {
-    protected_branches     = true
-    custom_branch_policies = false
-  }
+# resource "github_repository_environment" "golang_worker_development" {
+#   environment = "development"
+#   repository  = "golang-worker"
+#   reviewers {
+#     teams = [
+#       module.reviewers.id,
+#     ]
+#   }
+#   deployment_branch_policy {
+#     protected_branches     = true
+#     custom_branch_policies = false
+#   }
 
-  depends_on = [
-    module.golang_worker.id,
-  ]
-}
+#   depends_on = [
+#     module.golang_worker.id,
+#   ]
+# }
 
 resource "github_repository_environment" "golang_worker_production" {
   environment = "production"
@@ -345,24 +327,6 @@ module "terraform_cloud" {
       #   ]
       # }
     },
-  ]
-}
-
-resource "github_repository_environment" "terraform_cloud_development" {
-  environment = "development"
-  repository  = "terraform-cloud"
-  reviewers {
-    teams = [
-      module.reviewers.id,
-    ]
-  }
-  deployment_branch_policy {
-    protected_branches     = true
-    custom_branch_policies = false
-  }
-
-  depends_on = [
-    module.terraform_cloud.id,
   ]
 }
 
