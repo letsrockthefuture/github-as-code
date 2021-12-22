@@ -33,7 +33,7 @@ jobs:
 
       - name: Run linter
         run: |
-          make linter
+          make terraform/linter
 
   checkov:
     name: Checkov
@@ -81,7 +81,7 @@ jobs:
         # if: github.event_name == 'pull_request'
         continue-on-error: true
         run: |
-          make plan
+          make terraform/plan
 
       - name: Plan status
         if: steps.terraform_plan.outcome == 'failure'
@@ -137,4 +137,4 @@ jobs:
 
       - name: Apply
         run: |
-          make apply
+          make terraform/apply
