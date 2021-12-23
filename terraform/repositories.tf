@@ -114,6 +114,117 @@ resource "github_repository_environment" "github_production" {
   ]
 }
 
+module "terraform_repository_template" {
+  source  = "mineiros-io/repository/github"
+  version = "~> 0.11.0"
+
+  module_depends_on = [
+    module.reviewers,
+  ]
+
+  name        = "terraform-repository-template"
+  description = "A example of Terraform repository scaffolding."
+  # homepage_url       = "https://github.com/mineiros-io"
+  visibility         = "public"
+  has_issues         = true
+  has_projects       = false
+  has_wiki           = false
+  allow_merge_commit = true
+  allow_rebase_merge = false
+  allow_squash_merge = false
+  has_downloads      = false
+  auto_init          = true
+  gitignore_template = "Terraform"
+  license_template   = "apache-2.0"
+
+  is_template = true
+
+  topics = [
+    "github",
+    "github-actions",
+    "terraform",
+  ]
+
+  maintain_team_ids = [
+    module.reviewers.id,
+  ]
+
+  push_team_ids = [
+    module.developers.id,
+  ]
+
+  # webhooks = [
+  #   {
+  #     active = true
+
+  #     events = [
+  #       "issues",
+  #     ]
+
+  #     url          = "https://example.com/events"
+  #     content_type = "application/json"
+  #     insecure_ssl = false
+  #     secret       = "sososecret"
+  #   },
+  # ]
+
+  # admin_collaborators = [
+  #   "danielvincenzi",
+  # ]
+
+  # branch_protections_v3 = [
+  #   {
+  #     branch                 = "main"
+  #     enforce_admins         = true
+  #     require_signed_commits = true
+
+  #     required_status_checks = {
+  #       strict = true
+
+  #       # contexts = [
+  #       #   "ci/travis"
+  #       # ]
+  #     }
+
+  #     required_pull_request_reviews = {
+  #       dismiss_stale_reviews = true
+
+  #       # dismissal_teams = [
+  #       #   github_team.team.slug,
+  #       # ]
+
+  #       require_code_owner_reviews      = true
+  #       required_approving_review_count = 1
+  #     }
+
+  #     # restrictions = {
+
+  #     #   teams = [
+  #     #     github_team.team.slug,
+  #     #   ]
+  #     # }
+  #   },
+  # ]
+}
+
+resource "github_repository_environment" "terraform_repository_template_production" {
+  environment = "production"
+  repository  = "terraform-repository-template"
+  reviewers {
+    teams = [
+      module.reviewers.id,
+    ]
+  }
+  deployment_branch_policy {
+    protected_branches     = true
+    custom_branch_policies = false
+  }
+
+  depends_on = [
+    module.terraform_repository_template.id,
+  ]
+}
+
 module "terraform_workspaces" {
   source  = "mineiros-io/repository/github"
   version = "~> 0.11.0"

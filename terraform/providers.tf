@@ -12,7 +12,7 @@ terraform {
     organization = "letsrockthefuture"
 
     workspaces {
-      name = "github-as-code-test"
+      name = "github-as-code"
     }
   }
 }
