@@ -109,7 +109,7 @@ resource "github_repository_environment" "github_production" {
     custom_branch_policies = false
   }
 
-  module_depends_on = [
+  depends_on = [
     module.github.id,
   ]
 }
@@ -219,7 +219,7 @@ resource "github_repository_environment" "terraform_repository_template_producti
     custom_branch_policies = false
   }
 
-  module_depends_on = [
+  depends_on = [
     module.terraform_repository_template.id,
   ]
 }
@@ -327,7 +327,7 @@ resource "github_repository_environment" "terraform_workspaces_production" {
     custom_branch_policies = false
   }
 
-  module_depends_on = [
+  depends_on = [
     module.terraform_workspaces.id,
   ]
 }
@@ -353,7 +353,7 @@ module "makefiles" {
   has_downloads      = false
   auto_init          = true
   # gitignore_template = "Terraform"
-  license_template   = "apache-2.0"
+  license_template = "apache-2.0"
 
   topics = [
     "makefiles",
@@ -434,7 +434,7 @@ resource "github_repository_environment" "makefiles_production" {
     custom_branch_policies = false
   }
 
-  module_depends_on = [
+  depends_on = [
     module.makefiles.id,
   ]
 }
@@ -542,7 +542,7 @@ module "golang_worker" {
 #     custom_branch_policies = false
 #   }
 
-#   module_depends_on = [
+#   depends_on = [
 #     module.golang_worker.id,
 #   ]
 # }
@@ -560,7 +560,7 @@ resource "github_repository_environment" "golang_worker_production" {
     custom_branch_policies = false
   }
 
-  module_depends_on = [
+  depends_on = [
     module.golang_worker.id,
   ]
 }
@@ -668,7 +668,7 @@ resource "github_repository_environment" "terraform_tfe_workspaces_production" {
     custom_branch_policies = false
   }
 
-  module_depends_on = [
+  depends_on = [
     module.terraform_tfe_workspaces.id,
   ]
 }
