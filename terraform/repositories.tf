@@ -140,8 +140,7 @@ module "terraform_repository_template" {
   is_template = true
 
   topics = [
-    "github",
-    "github-actions",
+    "terraform-repository-template",
     "terraform",
   ]
 
