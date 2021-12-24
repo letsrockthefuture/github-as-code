@@ -1,9 +1,6 @@
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# CREATE A PUBLIC REPOSITORY WITH AN ATTACHED TEAM
-#   - create a public repository
-#   - create a team and invite members
-#   - add the team to the repository and grant admin permissions
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+####################################################
+### https://github.com/letsrockthefuture/.github ###
+####################################################
 
 module "github" {
   source  = "mineiros-io/repository/github"
@@ -13,9 +10,9 @@ module "github" {
     module.reviewers,
   ]
 
-  name        = ".github"
-  description = "A description of the repository."
-  # homepage_url       = "https://github.com/mineiros-io"
+  name               = ".github"
+  description        = "A description of the repository."
+  homepage_url       = "https://github.com/letsrockthefuture/.github"
   visibility         = "public"
   has_issues         = true
   has_projects       = false
@@ -40,25 +37,6 @@ module "github" {
   push_team_ids = [
     module.developers.id,
   ]
-
-  # webhooks = [
-  #   {
-  #     active = true
-
-  #     events = [
-  #       "issues",
-  #     ]
-
-  #     url          = "https://example.com/events"
-  #     content_type = "application/json"
-  #     insecure_ssl = false
-  #     secret       = "sososecret"
-  #   },
-  # ]
-
-  # admin_collaborators = [
-  #   "danielvincenzi",
-  # ]
 
   # branch_protections_v3 = [
   #   {
@@ -113,6 +91,10 @@ resource "github_repository_environment" "github_production" {
   ]
 }
 
+###############################################################
+### https://github.com/letsrockthefuture/reusable-workflows ###
+###############################################################
+
 module "reusable_workflows" {
   source  = "mineiros-io/repository/github"
   version = "~> 0.11.0"
@@ -121,9 +103,9 @@ module "reusable_workflows" {
     module.reviewers,
   ]
 
-  name        = "reusable-workflows"
-  description = "A description of the repository."
-  # homepage_url       = "https://github.com/mineiros-io"
+  name               = "reusable-workflows"
+  description        = "A description of the repository."
+  homepage_url       = "https://github.com/letsrockthefuture/reusable-workflows"
   visibility         = "public"
   has_issues         = true
   has_projects       = false
@@ -149,25 +131,6 @@ module "reusable_workflows" {
   push_team_ids = [
     module.developers.id,
   ]
-
-  # webhooks = [
-  #   {
-  #     active = true
-
-  #     events = [
-  #       "issues",
-  #     ]
-
-  #     url          = "https://example.com/events"
-  #     content_type = "application/json"
-  #     insecure_ssl = false
-  #     secret       = "sososecret"
-  #   },
-  # ]
-
-  # admin_collaborators = [
-  #   "danielvincenzi",
-  # ]
 
   # branch_protections_v3 = [
   #   {
@@ -222,6 +185,10 @@ resource "github_repository_environment" "reusable_workflows_production" {
   ]
 }
 
+##########################################################################
+### https://github.com/letsrockthefuture/terraform-repository-template ###
+##########################################################################
+
 module "terraform_repository_template" {
   source  = "mineiros-io/repository/github"
   version = "~> 0.11.0"
@@ -230,9 +197,9 @@ module "terraform_repository_template" {
     module.reviewers,
   ]
 
-  name        = "terraform-repository-template"
-  description = "A example of Terraform repository scaffolding."
-  # homepage_url       = "https://github.com/mineiros-io"
+  name               = "terraform-repository-template"
+  description        = "A example of Terraform repository scaffolding."
+  homepage_url       = "https://github.com/letsrockthefuture/terraform-repository-template"
   visibility         = "public"
   has_issues         = true
   has_projects       = false
@@ -259,25 +226,6 @@ module "terraform_repository_template" {
   push_team_ids = [
     module.developers.id,
   ]
-
-  # webhooks = [
-  #   {
-  #     active = true
-
-  #     events = [
-  #       "issues",
-  #     ]
-
-  #     url          = "https://example.com/events"
-  #     content_type = "application/json"
-  #     insecure_ssl = false
-  #     secret       = "sososecret"
-  #   },
-  # ]
-
-  # admin_collaborators = [
-  #   "danielvincenzi",
-  # ]
 
   # branch_protections_v3 = [
   #   {
@@ -332,6 +280,10 @@ resource "github_repository_environment" "terraform_repository_template_producti
   ]
 }
 
+#################################################################
+### https://github.com/letsrockthefuture/terraform-workspaces ###
+#################################################################
+
 module "terraform_workspaces" {
   source  = "mineiros-io/repository/github"
   version = "~> 0.11.0"
@@ -340,9 +292,9 @@ module "terraform_workspaces" {
     module.reviewers,
   ]
 
-  name        = "terraform-workspaces"
-  description = "A description of the repository."
-  # homepage_url       = "https://github.com/mineiros-io"
+  name               = "terraform-workspaces"
+  description        = "A description of the repository."
+  homepage_url       = "https://github.com/letsrockthefuture/terraform-workspaces"
   visibility         = "public"
   has_issues         = true
   has_projects       = false
@@ -367,25 +319,6 @@ module "terraform_workspaces" {
   push_team_ids = [
     module.developers.id,
   ]
-
-  # webhooks = [
-  #   {
-  #     active = true
-
-  #     events = [
-  #       "issues",
-  #     ]
-
-  #     url          = "https://example.com/events"
-  #     content_type = "application/json"
-  #     insecure_ssl = false
-  #     secret       = "sososecret"
-  #   },
-  # ]
-
-  # admin_collaborators = [
-  #   "danielvincenzi",
-  # ]
 
   # branch_protections_v3 = [
   #   {
@@ -440,6 +373,10 @@ resource "github_repository_environment" "terraform_workspaces_production" {
   ]
 }
 
+######################################################
+### https://github.com/letsrockthefuture/makefiles ###
+######################################################
+
 module "makefiles" {
   source  = "mineiros-io/repository/github"
   version = "~> 0.11.0"
@@ -448,9 +385,9 @@ module "makefiles" {
     module.reviewers,
   ]
 
-  name        = "makefiles"
-  description = "A collection of Makefiles to facilitate building Terraform, Golang projects, Dockerfiles, and more."
-  # homepage_url       = "https://github.com/mineiros-io"
+  name               = "makefiles"
+  description        = "A collection of Makefiles to facilitate building Terraform, Golang projects, Dockerfiles, and more."
+  homepage_url       = "https://github.com/letsrockthefuture/makefiles"
   visibility         = "public"
   has_issues         = true
   has_projects       = false
@@ -474,25 +411,6 @@ module "makefiles" {
   push_team_ids = [
     module.developers.id,
   ]
-
-  # webhooks = [
-  #   {
-  #     active = true
-
-  #     events = [
-  #       "issues",
-  #     ]
-
-  #     url          = "https://example.com/events"
-  #     content_type = "application/json"
-  #     insecure_ssl = false
-  #     secret       = "sososecret"
-  #   },
-  # ]
-
-  # admin_collaborators = [
-  #   "danielvincenzi",
-  # ]
 
   # branch_protections_v3 = [
   #   {
@@ -547,6 +465,10 @@ resource "github_repository_environment" "makefiles_production" {
   ]
 }
 
+##########################################################
+### https://github.com/letsrockthefuture/golang-worker ###
+##########################################################
+
 module "golang_worker" {
   source  = "mineiros-io/repository/github"
   version = "~> 0.11.0"
@@ -555,9 +477,9 @@ module "golang_worker" {
     module.reviewers,
   ]
 
-  name        = "golang-worker"
-  description = "A description of the repository."
-  # homepage_url       = "https://github.com/mineiros-io"
+  name               = "golang-worker"
+  description        = "A description of the repository."
+  homepage_url       = "https://github.com/letsrockthefuture/golang-worker"
   visibility         = "public"
   has_issues         = true
   has_projects       = false
@@ -582,25 +504,6 @@ module "golang_worker" {
   push_team_ids = [
     module.developers.id,
   ]
-
-  # webhooks = [
-  #   {
-  #     active = true
-
-  #     events = [
-  #       "issues",
-  #     ]
-
-  #     url          = "https://example.com/events"
-  #     content_type = "application/json"
-  #     insecure_ssl = false
-  #     secret       = "sososecret"
-  #   },
-  # ]
-
-  # admin_collaborators = [
-  #   "danielvincenzi",
-  # ]
 
   # branch_protections_v3 = [
   #   {
@@ -673,6 +576,10 @@ resource "github_repository_environment" "golang_worker_production" {
   ]
 }
 
+#####################################################################
+### https://github.com/letsrockthefuture/terraform-tfe-workspaces ###
+#####################################################################
+
 module "terraform_tfe_workspaces" {
   source  = "mineiros-io/repository/github"
   version = "~> 0.11.0"
@@ -681,9 +588,9 @@ module "terraform_tfe_workspaces" {
     module.reviewers,
   ]
 
-  name        = "terraform-tfe-workspaces"
-  description = "A description of the repository."
-  # homepage_url       = "https://github.com/mineiros-io"
+  name               = "terraform-tfe-workspaces"
+  description        = "A description of the repository."
+  homepage_url       = "https://github.com/letsrockthefuture/terraform-tfe-workspaces"
   visibility         = "public"
   has_issues         = true
   has_projects       = false
@@ -708,25 +615,6 @@ module "terraform_tfe_workspaces" {
   push_team_ids = [
     module.developers.id,
   ]
-
-  # webhooks = [
-  #   {
-  #     active = true
-
-  #     events = [
-  #       "issues",
-  #     ]
-
-  #     url          = "https://example.com/events"
-  #     content_type = "application/json"
-  #     insecure_ssl = false
-  #     secret       = "sososecret"
-  #   },
-  # ]
-
-  # admin_collaborators = [
-  #   "danielvincenzi",
-  # ]
 
   # branch_protections_v3 = [
   #   {
@@ -780,34 +668,3 @@ resource "github_repository_environment" "terraform_tfe_workspaces_production" {
     module.terraform_tfe_workspaces,
   ]
 }
-
-# ---------------------------------------------------------------------------------------------------------------------
-# TEAM
-# ---------------------------------------------------------------------------------------------------------------------
-# resource "github_team" "team" {
-#   name        = "My Team"
-#   description = "The best Team out there."
-#   privacy     = "secret"
-# }
-
-# ---------------------------------------------------------------------------------------------------------------------
-# TEAM MEMBERSHIP
-# We are adding a member to this team: "terraform-test-user-2".
-# This existing users and already member of the GitHub Organization "terraform-test" that
-# is an Organization managed by Mineiros.io to run integration tests with Terratest.
-# ---------------------------------------------------------------------------------------------------------------------
-
-# resource "github_team_membership" "team_membership" {
-#   team_id  = github_team.team.id
-#   username = "terraform-test-user-2"
-#   role     = "member"
-# }
-
-# ------------------------------------------------------------------------------
-# ENVIRONMENT VARIABLES:
-# ------------------------------------------------------------------------------
-# You can provide your credentials via the
-#   GITHUB_TOKEN and
-#   GITHUB_OWNER, environment variables,
-# representing your Access Token and the organization, respectively.
-# ------------------------------------------------------------------------------
