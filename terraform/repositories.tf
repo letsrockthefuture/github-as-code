@@ -104,7 +104,7 @@ module "reusable_workflows" {
   ]
 
   name               = "reusable-workflows"
-  description        = "A description of the repository."
+  description        = "A collection of GitHub Actions workflow templates to centralize all of our workflows used in projects."
   homepage_url       = "https://github.com/letsrockthefuture/reusable-workflows"
   visibility         = "public"
   has_issues         = true
