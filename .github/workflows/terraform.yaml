@@ -16,4 +16,6 @@ on:
       - "terraform/**"
 
 jobs:
-  uses: letsrockthefuture/reusable-workflows/.github/workflows/terraform.yaml@main
+  terraform:
+    name: "Terraform"
+    uses: letsrockthefuture/reusable-workflows/.github/workflows/terraform.yaml@main
