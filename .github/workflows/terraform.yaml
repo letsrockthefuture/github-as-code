@@ -17,6 +17,4 @@ on:
 
 jobs:
   terraform:
-    uses: letsrockthefuture/reusable-workflows/templates/terraform/workflow.yaml@main
-
-##
+    uses: letsrockthefuture/reusable-workflows/.github/workflows/terraform.yaml@main
