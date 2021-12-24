@@ -1,4 +1,4 @@
-name: Terraform
+name: "Terraform"
 
 on:
   workflow_dispatch:
@@ -16,5 +16,4 @@ on:
       - "terraform/**"
 
 jobs:
-  terraform:
-    uses: letsrockthefuture/reusable-workflows/.github/workflows/terraform.yaml@main
+  uses: letsrockthefuture/reusable-workflows/.github/workflows/terraform.yaml@main
