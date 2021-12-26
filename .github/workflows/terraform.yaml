@@ -19,6 +19,3 @@ jobs:
   terraform:
     name: "Terraform"
     uses: letsrockthefuture/reusable-workflows/.github/workflows/terraform.yaml@main
-    secrets:
-      # github_token: ${{ secrets.github_token }}
-      cli_config_credentials_token: ${{ secrets.TERRAFORM_API_TOKEN }}
