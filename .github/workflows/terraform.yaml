@@ -1,5 +1,4 @@
-name: "Terraform"
-
+---
 on:
   workflow_dispatch:
   push:
