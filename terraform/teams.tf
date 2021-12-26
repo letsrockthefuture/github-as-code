@@ -77,6 +77,19 @@ module "reviewers" {
   ]
 }
 
+module "dependabot_reviewers" {
+  source  = "mineiros-io/team/github"
+  version = "~> 0.7.0"
+
+  name        = "dependabot-reviewers"
+  description = "A team of users that are mandatory for reviewing pull requests."
+  privacy     = "closed"
+
+  members = [
+    "danielvincenzi",
+  ]
+}
+
 module "developers" {
   source  = "mineiros-io/team/github"
   version = "~> 0.7.0"

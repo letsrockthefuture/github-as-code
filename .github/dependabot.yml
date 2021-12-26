@@ -1,16 +1,17 @@
 ---
 version: 2
 
-# registries:
-#  spacelift:
-#    type: terraform-registry
-#    url: https://app.spacelift.io
-#    token: ${{ secrets.SPACELIFT_TOKEN }}
-
 updates:
-  - package-ecosystem: "terraform"
-    directory: "terraform"
-    # registries:
-    #   - spacelift
+  - package-ecosystem: "github-actions"
+    directory: ".github"
     schedule:
       interval: "daily"
+    reviewers:
+      - "letsrockthefuture/dependabot-reviewers"
+
+  - package-ecosystem: "terraform"
+    directory: "terraform"
+    schedule:
+      interval: "daily"
+    reviewers:
+      - "letsrockthefuture/dependabot-reviewers"

@@ -8,6 +8,7 @@ module "github" {
 
   module_depends_on = [
     module.reviewers,
+    module.dependabot_reviewers,
   ]
 
   name               = ".github"
@@ -32,6 +33,7 @@ module "github" {
 
   maintain_team_ids = [
     module.reviewers.id,
+    module.dependabot_reviewers.id,
   ]
 
   push_team_ids = [
@@ -101,6 +103,7 @@ module "reusable_workflows" {
 
   module_depends_on = [
     module.reviewers,
+    module.dependabot_reviewers,
   ]
 
   name               = "reusable-workflows"
@@ -126,6 +129,7 @@ module "reusable_workflows" {
 
   maintain_team_ids = [
     module.reviewers.id,
+    module.dependabot_reviewers.id,
   ]
 
   push_team_ids = [
@@ -195,6 +199,7 @@ module "terraform_repository_template" {
 
   module_depends_on = [
     module.reviewers,
+    module.dependabot_reviewers,
   ]
 
   name               = "terraform-repository-template"
@@ -221,6 +226,7 @@ module "terraform_repository_template" {
 
   maintain_team_ids = [
     module.reviewers.id,
+    module.dependabot_reviewers.id,
   ]
 
   push_team_ids = [
@@ -290,6 +296,7 @@ module "terraform_workspaces" {
 
   module_depends_on = [
     module.reviewers,
+    module.dependabot_reviewers,
   ]
 
   name               = "terraform-workspaces"
@@ -314,6 +321,7 @@ module "terraform_workspaces" {
 
   maintain_team_ids = [
     module.reviewers.id,
+    module.dependabot_reviewers.id,
   ]
 
   push_team_ids = [
@@ -383,6 +391,7 @@ module "makefiles" {
 
   module_depends_on = [
     module.reviewers,
+    module.dependabot_reviewers,
   ]
 
   name               = "makefiles"
@@ -406,6 +415,7 @@ module "makefiles" {
 
   maintain_team_ids = [
     module.reviewers.id,
+    module.dependabot_reviewers.id,
   ]
 
   push_team_ids = [
@@ -475,6 +485,7 @@ module "golang_worker" {
 
   module_depends_on = [
     module.reviewers,
+    module.dependabot_reviewers,
   ]
 
   name               = "golang-worker"
@@ -499,6 +510,7 @@ module "golang_worker" {
 
   maintain_team_ids = [
     module.reviewers.id,
+    module.dependabot_reviewers.id,
   ]
 
   push_team_ids = [
@@ -586,6 +598,7 @@ module "terraform_tfe_workspaces" {
 
   module_depends_on = [
     module.reviewers,
+    module.dependabot_reviewers,
   ]
 
   name               = "terraform-tfe-workspaces"
@@ -610,6 +623,7 @@ module "terraform_tfe_workspaces" {
 
   maintain_team_ids = [
     module.reviewers.id,
+    module.dependabot_reviewers.id,
   ]
 
   push_team_ids = [
