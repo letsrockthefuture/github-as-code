@@ -26,4 +26,4 @@ jobs:
       github_server_url: $GITHUB_SERVER_URL
     secrets:
       bc_api_key: ${{ secrets.BC_API_KEY }}
-      cli_config_credentials_token: ${{ secrets.TERRAFORM_API_KEY }}
+      cli_config_credentials_token: ${{ secrets.TERRAFORM_API_TOKEN }}
