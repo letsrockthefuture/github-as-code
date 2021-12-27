@@ -300,7 +300,7 @@ module "terraform_workspaces" {
   ]
 
   name               = "terraform-workspaces"
-  description        = "A description of the repository."
+  description        = "A project to manage Terraform Cloud workspaces resources via code."
   homepage_url       = "https://github.com/letsrockthefuture/terraform-workspaces"
   visibility         = "public"
   has_issues         = true
