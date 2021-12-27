@@ -2,18 +2,18 @@ name: "Terraform"
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - "main"
-    paths:
-      - ".github/workflows/terraform.yaml"
-      - "terraform/**"
-  pull_request:
-    branches:
-      - "main"
-    paths:
-      - ".github/workflows/terraform.yaml"
-      - "terraform/**"
+  # push:
+  #   branches:
+  #     - "main"
+  #   paths:
+  #     - ".github/workflows/terraform.yaml"
+  #     - "terraform/**"
+  # pull_request:
+  #   branches:
+  #     - "main"
+  #   paths:
+  #     - ".github/workflows/terraform.yaml"
+  #     - "terraform/**"
 
 jobs:
   terraform:
