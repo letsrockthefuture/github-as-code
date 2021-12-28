@@ -687,7 +687,7 @@ resource "github_repository_environment" "terraform_tfe_workspaces_production" {
 ### https://github.com/letsrockthefuture/aws-environments ###
 #############################################################
 
-module "aws_envirnoments" {
+module "aws_environments" {
   source  = "mineiros-io/repository/github"
   version = "~> 0.11.0"
 
