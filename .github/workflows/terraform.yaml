@@ -2,28 +2,29 @@ name: "Terraform"
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - "main"
-  #   paths:
-  #     - ".github/workflows/terraform.yaml"
-  #     - "terraform/**"
-  # pull_request:
-  #   branches:
-  #     - "main"
-  #   paths:
-  #     - ".github/workflows/terraform.yaml"
-  #     - "terraform/**"
+  push:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/terraform.yaml"
+      - "terraform/**"
+  pull_request:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/terraform.yaml"
+      - "terraform/**"
 
 jobs:
   terraform:
     name: "Terraform"
     uses: letsrockthefuture/reusable-workflows/.github/workflows/terraform.yaml@main
-    with:
-      github_repository: ${{ github.repository }}
-      github_ref: ${{ github.ref }}
-      github_sha: ${{ github.sha }}
-      github_server_url: $GITHUB_SERVER_URL
+    # with:
+      # github_repository: ${{ github.repository }}
+      # github_ref: ${{ github.ref }}
+      # github_sha: ${{ github.sha }}
+      # github_server_url: $GITHUB_SERVER_URL
     secrets:
-      bc_api_key: ${{ secrets.BC_API_KEY }}
+      # bc_api_key: ${{ secrets.BC_API_KEY }}
+      tfsec_token: ${{ secrets.GITHUB_TOKEN }}
       cli_config_credentials_token: ${{ secrets.TERRAFORM_API_TOKEN }}
