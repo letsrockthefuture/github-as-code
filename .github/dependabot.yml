@@ -10,7 +10,7 @@ updates:
       - "letsrockthefuture/dependabot-reviewers"
 
   - package-ecosystem: "terraform"
-    directory: "terraform"
+    directory: "/"
     schedule:
       interval: "daily"
     reviewers:
