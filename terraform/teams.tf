@@ -64,6 +64,19 @@ module "security" {
   ]
 }
 
+module "compliance" {
+  source  = "mineiros-io/team/github"
+  version = "~> 0.7.0"
+
+  name           = "compliance"
+  parent_team_id = module.security.id
+  privacy        = "closed"
+
+  members = [
+    "danielvincenzi",
+  ]
+}
+
 module "reviewers" {
   source  = "mineiros-io/team/github"
   version = "~> 0.7.0"
