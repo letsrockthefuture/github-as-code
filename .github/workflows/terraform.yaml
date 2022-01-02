@@ -23,5 +23,9 @@ jobs:
       working_directory: "terraform"
       terraform_version: 1.1.2
     secrets:
-      # bc_api_key: ${{ secrets.BC_API_KEY }}
+      bc_api_key: ${{ secrets.BC_API_KEY }}
+      github_repository: ${{ github.repository }}
+      github_ref: ${{ github.ref }}
+      github_sha: ${{ github.sha }}
+      github_server_url: $GITHUB_SERVER_URL
       cli_config_credentials_token: ${{ secrets.TERRAFORM_API_TOKEN }}
