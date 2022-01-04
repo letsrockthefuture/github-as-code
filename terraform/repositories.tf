@@ -777,3 +777,14 @@ resource "github_repository_environment" "aws_environments_production" {
     module.aws_environments,
   ]
 }
+
+
+resource "aws_s3_bucket" "b" {
+  bucket = "my-tf-test-bssduckasaset1433s2222"
+  acl    = "public-read"
+
+  tags = {
+    Name        = "my-tf-test-bssduckasaset1433s2222"
+    Environment = "Dev"
+  }
+}
