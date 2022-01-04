@@ -1,4 +1,4 @@
-name: "Terraform"
+name: "terraform_teams"
 
 on:
   workflow_dispatch:
@@ -6,21 +6,21 @@ on:
     branches:
       - "main"
     paths:
-      - ".github/workflows/terraform.yaml"
-      - "terraform/**"
+      - ".github/workflows/terraform-teams.yaml"
+      - "terraform/teams/**"
   pull_request:
     branches:
       - "main"
     paths:
-      - ".github/workflows/terraform.yaml"
-      - "terraform/**"
+      - ".github/workflows/terraform-teams.yaml"
+      - "terraform/teams/**"
 
 jobs:
-  terraform:
-    name: "Terraform"
+  terraform_teams:
+    name: "terraform_teams"
     uses: letsrockthefuture/reusable-workflows/.github/workflows/terraform.yaml@main
     with:
-      working_directory: "terraform"
+      working_directory: "terraform/teams"
       terraform_version: 1.1.2
     secrets:
       bc_api_key: ${{ secrets.BC_API_KEY }}

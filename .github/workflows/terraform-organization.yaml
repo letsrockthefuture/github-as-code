@@ -1,0 +1,27 @@
+name: "terraform_organization"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/terraform-organization.yaml"
+      - "terraform/organization/**"
+  pull_request:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/terraform-organization.yaml"
+      - "terraform/organization/**"
+
+jobs:
+  terraform_organization:
+    name: "terraform_organization"
+    uses: letsrockthefuture/reusable-workflows/.github/workflows/terraform.yaml@main
+    with:
+      working_directory: "terraform/organization"
+      terraform_version: 1.1.2
+    secrets:
+      bc_api_key: ${{ secrets.BC_API_KEY }}
+      cli_config_credentials_token: ${{ secrets.TERRAFORM_API_TOKEN }}

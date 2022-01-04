@@ -1,0 +1,27 @@
+name: "terraform_repositories"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/terraform-repositories.yaml"
+      - "terraform/repositories/**"
+  pull_request:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/terraform-repositories.yaml"
+      - "terraform/repositories/**"
+
+jobs:
+  terraform_repositories:
+    name: "terraform_repositories"
+    uses: letsrockthefuture/reusable-workflows/.github/workflows/terraform.yaml@main
+    with:
+      working_directory: "terraform/repositories"
+      terraform_version: 1.1.2
+    secrets:
+      bc_api_key: ${{ secrets.BC_API_KEY }}
+      cli_config_credentials_token: ${{ secrets.TERRAFORM_API_TOKEN }}
