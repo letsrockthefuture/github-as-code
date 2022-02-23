@@ -23,7 +23,7 @@
 
 module "owners" {
   source  = "mineiros-io/team/github"
-  version = "~> 0.7.0"
+  version = "~> 0.8.0"
 
   name = "owners"
   # description = "A team of users that are mandatory for reviewing pull requests."
@@ -32,28 +32,11 @@ module "owners" {
   members = [
     "danielvincenzi",
   ]
-
-  # pull_repositories = [
-  #   github_repository.repository.name,
-  # ]
-
-  # push_repositories = [
-  #   github_repository.another_repository.name,
-  # ]
 }
-
-# module "child_team" {
-#   source  = "mineiros-io/team/github"
-#   version = "~> 0.7.0"
-
-#   name           = "DevOps"
-#   parent_team_id = module.team.id
-#   privacy        = "closed"
-# }
 
 module "security" {
   source  = "mineiros-io/team/github"
-  version = "~> 0.7.0"
+  version = "~> 0.8.0"
 
   name = "security"
   # description = "A team of users that are mandatory for reviewing pull requests."
@@ -64,22 +47,9 @@ module "security" {
   ]
 }
 
-module "compliance" {
-  source  = "mineiros-io/team/github"
-  version = "~> 0.7.0"
-
-  name           = "compliance"
-  parent_team_id = module.security.id
-  privacy        = "closed"
-
-  members = [
-    "danielvincenzi",
-  ]
-}
-
 module "reviewers" {
   source  = "mineiros-io/team/github"
-  version = "~> 0.7.0"
+  version = "~> 0.8.0"
 
   name        = "reviewers"
   description = "A team of users that are mandatory for reviewing pull requests."
@@ -90,39 +60,13 @@ module "reviewers" {
   ]
 }
 
-module "dependabot_reviewers" {
-  source  = "mineiros-io/team/github"
-  version = "~> 0.7.0"
-
-  name        = "dependabot-reviewers"
-  description = "A team of users that are mandatory for reviewing pull requests."
-  privacy     = "closed"
-
-  members = [
-    "danielvincenzi",
-  ]
-}
-
 module "developers" {
   source  = "mineiros-io/team/github"
-  version = "~> 0.7.0"
+  version = "~> 0.8.0"
 
-  name = "developers"
-  # description = "A team of users that are mandatory for reviewing pull requests."
-  privacy = "closed"
-
-  members = [
-    "danielvincenzi",
-  ]
-}
-
-module "banking" {
-  source  = "mineiros-io/team/github"
-  version = "~> 0.7.0"
-
-  name = "banking"
-  # description = "A team of users that are mandatory for reviewing pull requests."
-  privacy = "closed"
+  name        = "developers"
+  description = "A team of users that will pushes on features branch."
+  privacy     = "closed"
 
   members = [
     "danielvincenzi",
