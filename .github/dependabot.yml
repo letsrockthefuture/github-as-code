@@ -7,11 +7,11 @@ updates:
     schedule:
       interval: "daily"
     reviewers:
-      - "letsrockthefuture/dependabot-reviewers"
+      - "letsrockthefuture/reviewers"
 
   - package-ecosystem: "terraform"
     directory: "/"
     schedule:
       interval: "daily"
     reviewers:
-      - "letsrockthefuture/dependabot-reviewers"
+      - "letsrockthefuture/reviewers"
