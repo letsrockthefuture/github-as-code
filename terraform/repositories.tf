@@ -7,7 +7,7 @@ module "github" {
   ]
 
   name               = ".github"
-  description        = "A description of the repository."
+  description        = "My company profile repository."
   homepage_url       = "https://github.com/letsrockthefuture/.github"
   visibility         = "public"
   has_issues         = true
@@ -89,7 +89,7 @@ module "github" {
 #   ]
 # }
 
-module "reusable_workflows" {
+module "workflows" {
   source  = "mineiros-io/repository/github"
   version = "~> 0.14.0"
 
@@ -97,9 +97,9 @@ module "reusable_workflows" {
     module.reviewers,
   ]
 
-  name               = "reusable-workflows"
+  name               = "workflows"
   description        = "A collection of GitHub Actions workflow templates to centralize all of our workflows used in projects."
-  homepage_url       = "https://github.com/letsrockthefuture/reusable-workflows"
+  homepage_url       = "https://github.com/letsrockthefuture/workflows"
   visibility         = "public"
   has_issues         = true
   has_projects       = false
@@ -115,7 +115,7 @@ module "reusable_workflows" {
   topics = [
     "github-actions",
     "github-workflows",
-    "reusable-workflows",
+    "workflows",
   ]
 
   maintain_team_ids = [
@@ -165,7 +165,7 @@ module "reusable_workflows" {
 
 # resource "github_repository_environment" "reusable_workflows_production" {
 #   environment = "production"
-#   repository  = "reusable-workflows"
+#   repository  = "workflows"
 #   reviewers {
 #     teams = [
 #       module.reviewers.id,
@@ -662,7 +662,7 @@ module "aws_stacks" {
   ]
 
   name               = "aws-stacks"
-  description        = "A project that brings together the deployment of necessary AWS resources for our development & production environments."
+  description        = "A project that brings together the deployment of necessary AWS resources for our environments."
   homepage_url       = "https://github.com/letsrockthefuture/aws-stacks"
   visibility         = "public"
   has_issues         = true
